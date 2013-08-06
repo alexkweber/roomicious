@@ -1,4 +1,7 @@
 #Roomicious Social Roommate Finder
+###Demo site
+[Roomicious.com](http://www.roomicious.com)
+
 ###Find a roommate
 Roomicious is a social roommate finder app similar to Craigslist but with more pictures and much more map-based.
 
