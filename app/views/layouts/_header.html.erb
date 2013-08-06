@@ -1,0 +1,17 @@
+<div id="header">
+	<%= link_to "roomicious", root_path, :class => "brand" %>
+	<!-- <span>Find your room today!</span> -->
+	</ul>
+	<ul class="nav nav-pills pull-right">
+		<li><%= link_to "Find a Place!", root_path %></li>
+		<li><%= link_to "Post a Place!", new_posting_path, :class => "active", :remote => true %></li>
+		<li><%= link_to "How it works", service_path, :remote => true %></li>
+		<% if logged_in? %>
+			<li><%= link_to "Manage Places", user_path(current_user), :remote => true %></li>
+			<li><%= link_to "Logout", logout_path %></li>
+		<% else %>
+			<li><%= link_to "Sign up", signup_path, :remote => true %></li>
+			<li><%= link_to "Login", login_path, :remote => true %></li>
+		<% end %>
+	</ul>
+</div>

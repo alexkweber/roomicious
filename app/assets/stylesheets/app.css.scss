@@ -1,0 +1,11 @@
+.center { text-align:center; }
+#ajax-loader {
+    position:absolute;
+    z-index:1000;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -16px; /* -1 * image width / 2 */
+    margin-top: -16px;  /* -1 * image height / 2 */
+    display: none;
+}

@@ -1,0 +1,16 @@
+<div class="row">
+	<div class="span post-info">
+		<%= number_to_currency(posting.rent,	:unit => '$', :precision => 0) %><br />
+		<%= link_to posting.street, posting,
+								:class => "posting",
+								:remote => true,
+								:geo => [posting.latitude, posting.longitude] %>
+		<h6><%= "#{posting.city}, #{posting.state}" %></h6>
+	</div>
+	<div class="span post-photo-box">
+		<%= link_to image_tag(posting.photo.url(:small)),
+								posting,
+								:class => "post-photo",
+								:remote => true %>
+	</div>
+</div>

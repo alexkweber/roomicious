@@ -1,0 +1,6 @@
+new_center = new google.maps.LatLng(<%= escape_javascript(@coord_str) %>);
+map.panTo(new_center);
+
+$("#postings-list").html("<%= escape_javascript(render(@postings)) %>");
+clearMarkers();
+dropMarkers();

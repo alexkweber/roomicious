@@ -1,0 +1,22 @@
+<%= render 'options' %>
+<div id="map_canvas"></div>
+<div id="postings-list">
+	<% @postings.each_with_index do |post, i| %>
+		<div class="row" onmouseover="markerMove(<%= i %>)" onmouseout="markerStop(<%= i %>)">
+			<div class="span post-info">
+				<%= number_to_currency(post.rent,	:unit => '$', :precision => 0) %><br />
+				<%= link_to post.street,
+										post,
+										:class => "posting",
+										:remote => "true",
+										:geo => [post.latitude, post.longitude] %>
+				<h6><%= "#{post.city}, #{post.state}" %></h6>
+			</div>
+			<div class="span post-photo-box">
+				<%= link_to image_tag(post.photo.url(:small)),
+										post,
+										:class => "post-photo" %>
+			</div>
+		</div>
+	<% end %>
+</div>

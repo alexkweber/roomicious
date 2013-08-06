@@ -1,0 +1,42 @@
+<div class="modal_header">
+  <button type="button" class="close" data-dismiss="modal">×</button>
+	Manage Places
+</div>
+<div class="modal_body">
+<%= content_tag :div, flash[:alert], :class => "alert alert-error" if flash[:alert] %>
+<% if @posting.errors.any? %>
+	<div class="alert alert-error">
+		<ul>
+		<%= @posting.errors.full_messages.each do |m| %>
+		 	<li><%= m %></li>
+		<% end %>
+		</ul>
+	</div>
+<% end %>
+<%= form_for @posting, remote: true, :html => { :multipart => true } do |f| %>
+	<div class="form-general-info well">
+		<table class="table">
+			<tbody>
+				<tr><td>Address</td><td><%= f.text_field :street, :placeholder => "Full Address", :class => "span3" %><%= f.text_field :city, :placeholder => "City", :class => "span2" %><%= f.text_field :state, :placeholder => "State", :class => "span2" %></td></tr>
+				<tr><td>Price:</td><td><div class="input-prepend input-append"><span class="add-on">$</span><%= f.text_field :rent, :class => "span2", :placeholder => "Rent Per Month" %><span class="add-on">.00</span></div></td></tr>
+				<tr><td>Listing Type:</td><td><%= f.select :property_type, $OPTIONS %></td></tr>
+				<tr><td>Message:</td><td><%= f.text_area :message %></td></tr>
+				<tr><td>Photo:</td><td><%= f.file_field :photo %></td></tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="action">
+		<%= f.submit "Submit", :class => "btn btn-large btn-primary", :id => "submit", :remote => true %>
+	</div>
+<% end %>
+</div>
+<div class="modal_footer">
+	<%= link_to "Cancel", '#', :class => "btn btn-large", :"data-dismiss" => "modal" if request.xhr? %>
+</div>
+
+<%= image_tag "ajax-loader.gif", :id => "ajax-loader" %>
+<script>
+$("#submit").click(function(){
+	$("#ajax-loader").show();
+});
+</script>

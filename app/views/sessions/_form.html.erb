@@ -1,0 +1,40 @@
+<div class="modal_header">
+  <button type="button" class="close" data-dismiss="modal">×</button>
+	Sign In
+</div>
+<div class="modal_body">
+<% if flash[:alert] || flash[:notice] %>
+	<p class="alert alert-info"><%= flash[:alert] || flash[:notice] %></p>
+<% end %>
+<%= form_tag({:action => :create}, :remote => true) do %>
+<div class="form-general-info well">
+	<div class="field">
+		<%= label_tag :email %>
+		<%= text_field_tag :email, params[:email] %>
+	</div>
+	<div class="field">
+		<%= label_tag :password %>
+		<%= password_field_tag :password, params[:password] %>
+	</div>
+	<div class="action">
+		<%= submit_tag "Sign In", :class => "btn btn-large btn-primary", :id => "submit", :remote => true %>
+	</div>
+	<div class="field">
+		<br />
+		<p>or</p>
+		<%= link_to image_tag("fblogin.png", alt: "Sign in with Facebook", :id => "fblogin"),
+							 																			'/auth/facebook',	id: 'sign_in' %>
+	</div>
+</div>
+<% end %>
+</div>
+<div class="modal_footer">
+	<%= link_to "Cancel", '#', :class => "btn btn-large", :"data-dismiss" => "modal" if request.xhr? %>
+</div>
+
+<%= image_tag "ajax-loader.gif", :id => "ajax-loader" %>
+<script>
+$("#submit").click(function(){
+	$("#ajax-loader").show();
+});
+</script>

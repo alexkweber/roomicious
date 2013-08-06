@@ -1,0 +1,30 @@
+<div class="modal_header">
+  <button type="button" class="close" data-dismiss="modal">×</button>
+	<h1>A Whole New Way of Finding A Place to Live!</h1>
+</div>
+<div class="modal_body">
+	<div class="form-general-info well">
+		<h2 class="left-align">Find a place to live the easiest way.</h2>
+	</div>
+	<div class="center">
+		<%= image_tag 'finders.png', :class => "info-pics round" %>
+	</div>
+	<div class="center">
+		<h3>Get started.</h3>
+		<%= link_to "Find a Place", '#', :class => "btn btn-large btn-primary", :"data-dismiss" => "modal" if request.xhr? %>
+	</div>
+
+	<div class="form-general-info well">
+		<h2 class="left-align">Post your place to get results!</h2>
+	</div>
+	<div class="center">
+		<%= image_tag 'posters.png', :class => "info-pics round" %>
+	</div>
+	<div class="center">
+		<h3>Get started.</h3>
+		<%= link_to "Post your Place", signup_path, :class => "btn btn-large btn-primary", :"data-dismiss" => "modal" if request.xhr? %>
+	</div>
+</div>
+<div class="modal_footer">
+	<%= link_to "Close", '#', :class => "btn btn-large", :"data-dismiss" => "modal" if request.xhr? %>
+</div>

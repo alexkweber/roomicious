@@ -1,0 +1,36 @@
+<div id="options-bar">
+	<div class="container">
+		<div class="row">
+			<div class="span12">
+				<div class="span3">
+					<%= form_tag("/", :remote => true ) do %>
+						<%= text_field_tag 'keyword', nil, :class => "span3 search-query",
+																							 :"data-provide" => "typeahead",
+																							 :"placeholder" => "Which City?" %>
+					<% end %>
+				</div>
+				<div class="span5">
+					<%= form_tag("/", :remote => true ) do %>
+						<div class="btn-group inline" data-toggle="buttons-radio">
+							<%= submit_tag "All", :class => "btn btn-medium", :id => "all" %>
+							<%= submit_tag "Apartments", :class => "btn btn-medium", :id => "apartment" %>
+							<%= submit_tag "Houses", :class => "btn btn-medium", :id => "house" %>
+							<%= submit_tag "Rooms", :class => "btn btn-medium", :id => "room" %>
+							<%= submit_tag "Shared-Rooms", :class => "btn btn-medium", :id => "shared" %>
+						</div>
+					<% end %>
+				</div>
+				<div class="span3">
+					<%= form_tag("/", :remote => true ) do %>
+						<%= text_field_tag :pricemin, params[:pricemin] || nil, :class => "span1",
+						 															:placeholder => "$ Min", :id => "pricemin" %>
+						~ 
+						<%= text_field_tag :pricemax, params[:pricemax] || nil, :class => "span1",
+						 															:placeholder => "$ Max", :id => "pricemax" %>
+						<%= submit_tag "Submit", :class => "btn btn-medium", :id => "price-btn" %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

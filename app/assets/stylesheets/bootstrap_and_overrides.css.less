@@ -1,0 +1,12 @@
+@import "twitter/bootstrap/bootstrap";
+body { background-image:url('mat.png'); overflow:hidden;}
+label { font-size:1.2em; }
+textarea { width:95%; height:6em; }
+.btn {
+    position:relative;
+    box-shadow: 0 1px 2px #222;
+}
+.btn-primary { &:hover { top:-1px; }}
+@linkColor: @pink;
+@iconSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings.png');
+@iconWhiteSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings-white.png');
